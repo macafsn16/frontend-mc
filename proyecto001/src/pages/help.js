@@ -2,14 +2,16 @@ import Head from 'next/head'
 //import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
+import MainContextProvider from '@/context/maincontextprovider'
+import NavBarB from '@/componentes/navbar/NavBarBs5'
+import DarkModef from '@/componentes/buttons/dark_mode_f'
+import ToastB from '@/componentes/toast/toastb'
+import FormRegister from '@/componentes/register/register'
 
 const inter = Inter({ subsets: ['latin'] })
 
-// Reemplazar esta constante con la info de data.json...
-const myData = []//data
-const urlRequest = []//myData[0].url
 
-export default function Home() {
+export default function Help() {
   /* Esto es una promesa de obtener datos desde algun backend*/
   /*fetch(urlRequest)
     .then(response => console.log("Se cumplio la promesa: " + response))
@@ -23,9 +25,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        Esto el home
-      </main>
+
+      <MainContextProvider>
+        <NavBarB></NavBarB>
+        <ToastB toast="Bienvenido a React/NextJs"></ToastB>
+        <FormRegister></FormRegister>
+        <main className={styles.main}>
+          Esto el Help
+        </main>
+      </MainContextProvider>
+
     </>
   )
 }
